@@ -11,3 +11,25 @@ var productExceptSelf = function(nums) {
     }
     return result;
 };
+
+//valod O(n) solution
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function (nums) {
+    const res = [];
+    const n = nums.length;
+    let start = 1;
+    for (let i = 0; i < n; i++) {
+        res.push(start)
+        start = start * nums[i]
+    }
+    let start2 = 1
+    for (let i = n-1; i >=0 - 1; i--) {
+        res[i] = start2 * res[i];
+        start2 = start2 * nums[i]
+    }
+
+    return res;
+};
